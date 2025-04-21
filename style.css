@@ -100,19 +100,40 @@ main {
 
 .card-section {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 20px;
-  flex-wrap: wrap;
   margin-bottom: 30px;
+}
+
+.index-card-section {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Adjusted for wider distribution */
+  width: 100%;
+  max-width: 1800px; /* Increased section width */
+  margin: 0 auto;
+}
+
+.team-card-section {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card {
   flex: 1;
   min-width: 250px;
+  max-width: 800px;
+  margin: 0 auto;
   background: #fff;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.index-card {
+  max-width: 1600px;
+  min-width: 500px; /* Increased from 450px */
 }
 
 .card h2 {
@@ -124,6 +145,14 @@ main {
 .card ul {
   list-style: square;
   padding-left: 20px;
+}
+
+.nested-box {
+  border: 1px solid #e2dbc8;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background: #fff;
 }
 
 .team-member {
@@ -165,8 +194,19 @@ main {
 
 .review-body {
   display: flex;
+  flex-direction: column;
   gap: 20px;
   align-items: flex-start;
+}
+
+.review-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.review-content p {
+  flex: 1;
 }
 
 .image-card {
@@ -221,8 +261,8 @@ main {
 }
 
 .nav-item a img {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
   border-radius: 12px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -322,6 +362,14 @@ footer {
     flex-direction: column;
   }
 
+  .index-card-section {
+    flex-direction: column;
+  }
+
+  .team-card-section {
+    flex-direction: column;
+  }
+
   .team-member {
     flex-direction: column;
     align-items: center;
@@ -336,6 +384,11 @@ footer {
     align-items: center;
   }
 
+  .review-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .card-img {
     margin-bottom: 15px;
   }
@@ -346,7 +399,21 @@ footer {
   }
 
   .nav-item a img {
-    width: 140px;
-    height: 140px;
+    width: 170px;
+    height: 170px;
   }
+}
+
+.card-section.index-card-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.index-card {
+  flex: 1 1 30%;
+  min-width: 500px;
+  max-width: 600px;
 }
