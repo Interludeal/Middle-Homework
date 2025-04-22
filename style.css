@@ -108,9 +108,9 @@ main {
 .index-card-section {
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between; /* Adjusted for wider distribution */
+  justify-content: space-between;
   width: 100%;
-  max-width: 1800px; /* Increased section width */
+  max-width: 1800px;
   margin: 0 auto;
 }
 
@@ -133,7 +133,7 @@ main {
 
 .index-card {
   max-width: 1600px;
-  min-width: 500px; /* Increased from 450px */
+  min-width: 500px;
 }
 
 .card h2 {
