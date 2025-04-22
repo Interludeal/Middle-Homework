@@ -6,10 +6,9 @@
 
 html,
 body {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 body {
@@ -25,7 +24,6 @@ header {
   padding: 6px 0;
   text-align: center;
   border-bottom: 1px solid #e2dbc8;
-  flex-shrink: 0;
 }
 
 header h1 {
@@ -48,7 +46,7 @@ main {
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   margin-bottom: 20px;
-  gap: 30px;
+  gap: 20px;
 }
 
 .profile-img,
@@ -59,7 +57,6 @@ main {
   object-fit: cover;
   border: 2px solid #fdf9ec;
   box-shadow: 0 0 0 3px #ccc, 0 4px 8px rgba(0, 0, 0, 0.1);
-  flex-shrink: 0;
 }
 
 .card-img {
@@ -68,6 +65,7 @@ main {
 
 .profile-details {
   display: flex;
+  flex-direction: row;
   align-items: flex-start;
   gap: 30px;
   width: 100%;
@@ -75,11 +73,11 @@ main {
 
 .profile-details h2 {
   font-size: 22px;
-  margin: 6px 0;
+  margin: 0;
   border-right: 2px solid #ccc;
   padding-right: 20px;
-  height: 120px;
-  line-height: 120px;
+  height: 140px;
+  line-height: 140px;
 }
 
 .info-grid {
@@ -89,13 +87,8 @@ main {
   flex: 1;
 }
 
-.info-grid .column {
-  display: flex;
-  flex-direction: column;
-}
-
 .info-grid .column p {
-  margin: 6px 0;
+  margin: 10px 0;
 }
 
 .card-section {
@@ -108,8 +101,8 @@ main {
 .index-card-section {
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: center;
+  gap: 30px;
   max-width: 1800px;
   margin: 0 auto;
 }
@@ -132,19 +125,27 @@ main {
 }
 
 .index-card {
-  max-width: 1600px;
   min-width: 500px;
+  max-width: 600px;
 }
 
 .card h2 {
   font-size: 18px;
   color: #2c3e50;
-  margin-bottom: 10px;
+  margin: 10px 0;
+}
+
+.card p {
+  margin: 8px 0;
 }
 
 .card ul {
   list-style: square;
   padding-left: 20px;
+}
+
+.card ul li {
+  margin: 8px 0;
 }
 
 .nested-box {
@@ -167,46 +168,12 @@ main {
   align-items: center;
 }
 
-.team-member .profile-details {
-  flex-direction: column;
-  align-items: flex-start;
-}
-
 .team-member .profile-details h2 {
   border-right: none;
   padding-right: 0;
   height: auto;
   line-height: normal;
-  margin: 0 0 10px;
-}
-
-.github-caption {
-  font-size: 13px;
-  color: #777;
-  text-align: center;
-  margin-top: 5px;
-}
-
-.review-card {
-  display: flex;
-  flex-direction: column;
-}
-
-.review-body {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: flex-start;
-}
-
-.review-content {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-}
-
-.review-content p {
-  flex: 1;
+  margin: 10px 0;
 }
 
 .image-card {
@@ -215,28 +182,24 @@ main {
   align-items: center;
 }
 
-.card-caption {
+.github-caption,
+.card-caption,
+.nav-caption {
   font-size: 13px;
   color: #777;
-  margin-top: 5px;
   text-align: center;
-  transition: color 0.3s ease;
+  margin-top: 5px;
 }
 
 .card-caption:hover {
   color: #2c3e50;
 }
 
-.study-link {
-  margin-top: 10px;
-}
-
 .study-link a {
   font-size: 14px;
   color: #2c3e50;
   text-decoration: none;
-  display: inline-block;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .study-link a:hover {
@@ -254,10 +217,6 @@ main {
   justify-content: center;
   gap: 80px;
   flex-wrap: wrap;
-}
-
-.nav-item {
-  text-align: center;
 }
 
 .nav-item a img {
@@ -280,18 +239,12 @@ main {
   color: #333;
 }
 
-.nav-caption {
-  font-size: 13px;
-  color: #777;
-}
-
 footer {
   text-align: center;
   padding: 6px;
   background: #fdf9ec;
   color: #333;
   font-size: 14px;
-  flex-shrink: 0;
 }
 
 .modal {
@@ -329,17 +282,31 @@ footer {
   color: #ccc;
 }
 
+.review-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+}
+
 @media (max-width: 768px) {
-  .profile {
+  .profile,
+  .team-member,
+  .review-body,
+  .review-content {
     flex-direction: column;
-    text-align: center;
+    align-items: center;
   }
 
-  .profile-img {
+  .profile-img,
+  .card-img {
     margin: 0 auto 15px;
   }
 
-  .profile-details {
+  .profile-details,
+  .info-grid,
+  .index-card-section,
+  .team-card-section {
     flex-direction: column;
     align-items: center;
     gap: 20px;
@@ -352,47 +319,6 @@ footer {
     line-height: normal;
   }
 
-  .info-grid {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .card-section {
-    flex-direction: column;
-  }
-
-  .index-card-section {
-    flex-direction: column;
-  }
-
-  .team-card-section {
-    flex-direction: column;
-  }
-
-  .team-member {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .team-member .profile-details {
-    align-items: center;
-  }
-
-  .review-body {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .review-content {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card-img {
-    margin-bottom: 15px;
-  }
-
   .nav-buttons {
     flex-direction: column;
     gap: 20px;
@@ -402,18 +328,9 @@ footer {
     width: 170px;
     height: 170px;
   }
-}
 
-.card-section.index-card-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-bottom: 30px;
-}
-
-.index-card {
-  flex: 1 1 30%;
-  min-width: 500px;
-  max-width: 600px;
+  .index-card {
+    min-width: 300px;
+    max-width: 100%;
+  }
 }
